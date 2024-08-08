@@ -1,16 +1,16 @@
 import subprocess
 import sys
 
-def install_tool(tool_name):
+def install_tool(Tool-X):
     # Construct the GitHub repository URL
-    repo_url = f"https://github.com/{tool_name}/{tool_name}.git"
+    repo_url = f"git clone https://github.com/ekadanuarta/Tool-X.git"
 
     # Clone the repository
     clone_cmd = f"git clone {repo_url}"
     subprocess.run(clone_cmd, shell=True)
 
     # Change into the repository directory
-    repo_dir = f"{tool_name}"
+    repo_dir = f"{Tool-X}"
     os.chdir(repo_dir)
 
     # Install the tool using pip
@@ -19,8 +19,8 @@ def install_tool(tool_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: gitinstall <tool_name>")
+        print("Usage: gitinstall <Tool-X>")
         sys.exit(1)
 
-    tool_name = sys.argv[1]
-    install_tool(tool_name)
+    Tool-X = sys.argv[1]
+    install_tool(Tool-X)
