@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Tool Name: E3xSA
+# Author: Rajkumar Dusad
+# Date: 8/8/2024
+
+# Determine configuration directory based on the environment
+if [ -d /data/data/com.termux/files/usr/etc ]; then
+  conf_dir="/data/data/com.termux/files/usr/etc"
+elif [ -d /usr/etc ]; then
+  conf_dir="/usr/etc"
+elif [ -d /etc ]; then
+  conf_dir="/etc"
+else
+  echo "Configuration directory not found."
+  exit 1
+fi
+
+# Run the Python script with or without sudo based on availability
+if [ -e /usr/lib/sudo ]; then
+  sudo python3 "$conf_dir/E3xSA/E3xSA.py"
+else
+  python3 "$conf_dir/E3xSA/E3xSA.py"
+fi
+
+exit
